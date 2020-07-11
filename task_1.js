@@ -33,13 +33,8 @@ function openModal(event) {
     }
     const bigImg = event.target.dataset.source;
     ref.lightBox.classList.add('is-open');
-    openImg(bigImg);
+    ref.largeImg.src = bigImg;
 }
-
-function openImg(url) {
-    ref.largeImg.src = url;
-}
-
 function closeModal(event) {
     if (event.target === document.querySelector('.lightbox__content')) {
         ref.largeImg.src = "#";
@@ -47,8 +42,7 @@ function closeModal(event) {
     }
 
 }
-
 function closeModalBtn() {
-        ref.largeImg.src = "#";
-        ref.lightBox.classList.remove('is-open');
+    ref.largeImg.src = "#";
+    ref.lightBox.classList.remove('is-open');
 }
