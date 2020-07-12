@@ -12,7 +12,7 @@ const ref = {
 ref.galleryBox.addEventListener("click", openModal);
 ref.lightBox.addEventListener("click", closeModalByOverlay);
 ref.buttonClose.addEventListener("click", closeModal);
-window.addEventListener('keydown', closeModalByEsc);
+
 function createMarkup() {
     const markup = gallery_items.map((el) => {
        return `<li class="gallery__item">
@@ -40,6 +40,7 @@ renderItems(createMarkup());
 
 
 function openModal(event) {
+    window.addEventListener('keydown', closeModalByEsc);
     event.preventDefault();
     if (event.target.nodeName !== "IMG") {
         return;
