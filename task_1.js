@@ -3,6 +3,7 @@ import gallery_items from "/JS-home_work-8/gallery_items.js";
 const ref = {
     galleryBox: document.querySelector(".js-gallery"),
     lightBox: document.querySelector(".js-lightbox"),
+    lightboxContent : document.querySelector(".lightbox__content"),
     galleryLink: document.querySelector(".gallery__link"),
     largeImg: document.querySelector(".lightbox__image"),
     buttonClose: document.querySelector(".lightbox__button"),
@@ -11,7 +12,7 @@ const ref = {
 ref.galleryBox.addEventListener("click", openModal);
 ref.lightBox.addEventListener("click", closeModalByOverlay);
 ref.buttonClose.addEventListener("click", closeModal);
-window.addEventListener('keydown', closeModalByEsc)
+window.addEventListener('keydown', closeModalByEsc);
 function createMarkup() {
     const markup = gallery_items.map((el) => {
        return `<li class="gallery__item">
@@ -56,10 +57,13 @@ function closeModalByOverlay(event) {
 function closeModal() {
     ref.largeImg.src = "#";
     ref.lightBox.classList.remove("is-open");
+    window.removeEventListener("keydown", closeModalByEsc);
 }
 function closeModalByEsc(event){
     if (event.code !== "Escape") {
         return;
       }
       closeModal();
+      
     };
+ 
