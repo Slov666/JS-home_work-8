@@ -50,8 +50,6 @@ function openModal(event) {
 
 function closeModalByOverlay(event) {
     if (event.target === document.querySelector(".lightbox__content")) {
-console.log(event.target);
-console.log(event.currentTarget);
         closeModal()
     }
 }
